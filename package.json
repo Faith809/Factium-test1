@@ -1,0 +1,70 @@
+{
+  "name": "lates-factium-ai-v3",
+  "private": true,
+  "version": "0.1.0",
+  "main": "main.js",
+  "packageManager": "npm@10.8.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "tsc --noEmit",
+    "preview": "vite preview",
+    "electron:dev": "electron .",
+    "electron:build": "npm run build && electron-builder"
+  },
+  "build": {
+    "productName": "My AI App",
+    "appId": "com.myapp.ai",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "dist/Gemini_Generated_Image_tnj28ptnj28ptnj2.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "dist/Gemini_Generated_Image_tnj28ptnj28ptnj2.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "dist/Gemini_Generated_Image_tnj28ptnj28ptnj2.png"
+    }
+  },
+  "dependencies": {
+    "@google/genai": "1.30.0",
+    "@tailwindcss/vite": "4.2.2",
+    "autoprefixer": "10.4.27",
+    "driver.js": "1.4.0",
+    "idb": "8.0.3",
+    "lucide-react": "0.263.1",
+    "motion": "12.4.7",
+    "postcss": "8.5.8",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "9.0.3",
+    "recharts": "2.15.1",
+    "tailwindcss": "4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "22.14.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "electron": "^34.3.0",
+    "electron-builder": "^25.1.8",
+    "terser": "^5.46.1",
+    "typescript": "5.8.2",
+    "vite": "6.2.0"
+  },
+  "overrides": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
