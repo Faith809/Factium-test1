@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: installers-${{ matrix.os }}
-          path: dist-electron/*.{exe,dmg,AppImage,deb,rpm}
+          path: "**/dist*/*.{exe,dmg,AppImage,deb,rpm}"
 
   release:
     needs: build
