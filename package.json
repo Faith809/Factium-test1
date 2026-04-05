@@ -15,6 +15,7 @@
   "build": {
     "productName": "My AI App",
     "appId": "com.myapp.ai",
+    "npmRebuild": false,
     "directories": {
       "output": "dist-electron"
     },
@@ -58,7 +59,7 @@
     "@types/react-dom": "18.2.0",
     "@vitejs/plugin-react": "4.3.4",
     "electron": "^34.3.0",
-    "electron-builder": "^25.1.8",
+    "electron-builder": "^25.0.0",
     "terser": "^5.46.1",
     "typescript": "5.8.2",
     "vite": "6.2.0"
