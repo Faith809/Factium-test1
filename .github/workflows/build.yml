@@ -8,8 +8,8 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-
     strategy:
+      fail-fast: false # This ensures Windows/Ubuntu continue even if macOS fails
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
 
@@ -20,11 +20,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24 # Updated to Node 24 to fix deprecation errors
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps # Prevents version conflicts
 
       - name: Build Vite App
         run: npm run build
@@ -33,6 +33,7 @@ jobs:
         run: npm run electron:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Bypasses Node 20 restrictions
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -59,4 +60,4 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}ecrets.GITHUB_TOKEN }}
